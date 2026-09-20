@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>6º C | Prova Paulista</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6fb;color:#172033}
+header{background:linear-gradient(135deg,#c91525 0 48%,#111827 48%);color:#fff;text-align:center;padding:36px 18px}
+header .mask{font-size:58px} h1{margin:8px 0;font-size:38px} header p{font-size:18px}
+nav{position:sticky;top:0;background:#111827;padding:10px;text-align:center;z-index:2}
+nav a{display:inline-block;color:#fff;text-decoration:none;margin:4px;padding:9px 13px;border-radius:18px;background:#c91525}
+main{max-width:900px;margin:auto;padding:18px}
+.card{background:#fff;margin:16px 0;padding:22px;border-radius:16px;box-shadow:0 3px 12px #0002}
+h2{color:#c91525}.hero{border-left:6px solid #c91525}
+li{margin:9px 0}.tag{display:inline-block;background:#e8edf7;padding:7px 10px;border-radius:12px;margin:4px}
+footer{text-align:center;background:#111827;color:#fff;padding:22px}
+#adminPanel{display:none}.admin-btn{background:#111827;color:#fff;border:0;padding:10px 14px;border-radius:12px;cursor:pointer}.admin-box input,.admin-box textarea{width:100%;box-sizing:border-box;padding:10px;margin:6px 0;border:1px solid #ccd2df;border-radius:10px}.admin-box button{padding:10px 14px;border:0;border-radius:10px;background:#c91525;color:white;cursor:pointer}.item{padding:10px;border-left:4px solid #c91525;margin:8px 0;background:#f7f8fb;border-radius:8px}img.site-img{max-width:100%;border-radius:12px;margin-top:10px}</style>
+</head>
+<body>
+<header>
+<div class="mask">🕷️</div>
+<h1>6º C</h1>
+<p>Site da turma • Prova Paulista</p>
+</header>
+<nav>
+<a href="#inicio">Início</a><a href="#prova">Prova Paulista</a><a href="#materias">Matérias</a><a href="#dicas">Dicas</a><a href="#avisos">Avisos</a><button class="admin-btn" onclick="abrirAdmin()">🔐 Admin</button>
+</nav>
+<main>
+<section id="inicio" class="card hero">
+<h2>🕸️ Bem-vindos ao site do 6º C!</h2>
+<p>Aqui a turma pode acompanhar informações, conteúdos e dicas para se preparar para a Prova Paulista.</p>
+<span class="tag">6º C</span><span class="tag">🕷️ Mascote: Homem-Aranha</span><span class="tag">📚 Estudos</span>
+</section>
+<section id="prova" class="card">
+<h2>📝 Prova Paulista</h2>
+<p>A Prova Paulista é uma avaliação da rede estadual de São Paulo. Este espaço pode ajudar a turma a organizar os estudos e revisar os conteúdos.</p>
+</section>
+<section id="materias" class="card">
+<h2>📚 Matérias</h2>
+<ul><li>📖 Língua Portuguesa</li><li>➗ Matemática</li><li>🌎 Geografia</li><li>🏛️ História</li><li>🔬 Ciências</li><li>🇬🇧 Língua Inglesa</li></ul>
+</section>
+<section id="dicas" class="card">
+<h2>💡 Dicas para estudar</h2>
+<ul><li>Revise os conteúdos vistos em aula.</li><li>Leia cada questão com atenção.</li><li>Faça exercícios para treinar.</li><li>Organize seu tempo de estudo.</li><li>Não deixe as dúvidas acumularem.</li></ul>
+</section>
+<section id="adminPanel" class="card admin-box"><h2>🔐 Área do administrador</h2><div id="loginArea"><p>Digite a senha para administrar o site:</p><input id="senha" type="password" placeholder="Senha"><button onclick="login()">Entrar</button><p id="loginMsg"></p></div><div id="editor" style="display:none"><h3>➕ Adicionar conteúdo</h3><input id="titulo" placeholder="Título"><textarea id="texto" rows="4" placeholder="Texto do conteúdo"></textarea><input id="imagem" type="file" accept="image/*"><button onclick="adicionar()">Adicionar ao site</button><div id="adminLista"></div></div></section><section id="avisos" class="card">
+<h2>📢 Avisos do 6º C</h2>
+<p>Espaço para colocar datas de provas, trabalhos, atividades e outros avisos da turma.</p>
+</section>
+</main><script>const SENHA="sexto c Jennifer";function abrirAdmin(){document.getElementById('adminPanel').style.display='block';document.getElementById('adminPanel').scrollIntoView({behavior:'smooth'})}function login(){if(document.getElementById('senha').value===SENHA){document.getElementById('loginArea').style.display='none';document.getElementById('editor').style.display='block';document.getElementById('loginMsg').textContent=''}else document.getElementById('loginMsg').textContent='Senha incorreta.'}function adicionar(){const t=document.getElementById('titulo').value.trim(),x=document.getElementById('texto').value.trim(),f=document.getElementById('imagem').files[0];if(!t&&!x&&!f)return;const d=document.createElement('div');d.className='item';if(t){const h=document.createElement('h3');h.textContent=t;d.appendChild(h)}if(x){const p=document.createElement('p');p.textContent=x;d.appendChild(p)}if(f){const img=document.createElement('img');img.className='site-img';img.src=URL.createObjectURL(f);d.appendChild(img)}document.getElementById('adminLista').appendChild(d);document.getElementById('titulo').value='';document.getElementById('texto').value='';document.getElementById('imagem').value=''};</script>
+<footer>🕷️ 6º C • Prova Paulista</footer>
+</body>
+</html>
